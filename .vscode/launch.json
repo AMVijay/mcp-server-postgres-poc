@@ -1,0 +1,38 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug MCP Server",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/index.ts",
+            "preLaunchTask": "Build and Run MCP Server",
+            "outFiles": ["${workspaceFolder}/dist/**/*.js"],
+            "env": {
+                "NODE_ENV": "development"
+            },
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "sourceMaps": true,
+            "stopOnEntry": false,
+            "runtimeExecutable": "node",
+            "runtimeArgs": ["--loader", "tsx/esm"]
+        },
+        {
+            "name": "Test Database Connection",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/test-connection.ts",
+            "outFiles": ["${workspaceFolder}/dist/**/*.js"],
+            "env": {
+                "NODE_ENV": "development"
+            },
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "sourceMaps": true,
+            "stopOnEntry": false,
+            "runtimeExecutable": "node",
+            "runtimeArgs": ["--loader", "tsx/esm"]
+        }
+    ]
+}

@@ -1,0 +1,25 @@
+{
+    "name": "MCP Server Development",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "remoteUser": "root",
+    "userEnvProbe": "none",
+    "forwardPorts": [5432],
+    "portsAttributes": {
+        "5432": {
+            "label": "PostgreSQL",
+            "onAutoForward": "notify"
+        }
+    },
+    "postCreateCommand": "/workspaces/ai-learning/.devcontainer/init-postgres.sh",
+    "initializeCommand": "echo 'Initializing dev container with PostgreSQL...'",
+    "features": {},
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "bash"
+            }
+        }
+    }
+}
