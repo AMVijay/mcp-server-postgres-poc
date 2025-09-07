@@ -51,20 +51,3 @@ RUN sudo -u postgres /usr/lib/postgresql/*/bin/pg_ctl -D /var/lib/postgresql/dat
 
 # Expose the PostgreSQL port
 EXPOSE 5432
-
-# Add health check to ensure PostgreSQL is ready
-HEALTHCHECK --interval=10s --timeout=5s --retries=5 --start-period=30s \
-    CMD pg_isready -U $POSTGRES_USER -d $POSTGRES_DB
-
-# Create startup script
-RUN echo '#!/bin/bash\n\
-# Stop any existing PostgreSQL service\n\
-service postgresql stop 2>/dev/null || true\n\
-# Start PostgreSQL with custom configuration\n\
-sudo -u postgres /usr/lib/postgresql/*/bin/pg_ctl -D /var/lib/postgresql/data -l /var/lib/postgresql/data/logfile start\n\
-echo "PostgreSQL started with custom configuration"\n\
-tail -f /var/lib/postgresql/data/logfile' > /start-postgres.sh && \
-    chmod +x /start-postgres.sh
-
-# Start PostgreSQL by default
-CMD ["/start-postgres.sh"]

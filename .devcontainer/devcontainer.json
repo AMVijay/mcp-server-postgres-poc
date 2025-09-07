@@ -12,14 +12,18 @@
             "onAutoForward": "notify"
         }
     },
-    "postCreateCommand": "/workspaces/ai-learning/.devcontainer/init-postgres.sh",
+    "postCreateCommand": "bash /workspaces/mcp-server-postgres-poc/.devcontainer/init-postgres.sh",
     "initializeCommand": "echo 'Initializing dev container with PostgreSQL...'",
-    "features": {},
     "customizations": {
         "vscode": {
             "settings": {
                 "terminal.integrated.defaultProfile.linux": "bash"
-            }
+            },
+            "extensions": [
+                "ms-azuretools.vscode-docker",
+                "ms-vscode-remote.remote-containers",
+                "ms-ossdata.vscode-postgresql"
+            ]
         }
     }
 }

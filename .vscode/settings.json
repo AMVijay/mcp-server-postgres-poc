@@ -1,0 +1,16 @@
+{
+  "languageModel.mcpServers": {
+    "postgres-mcp-server": {
+      "command": "node",
+      "args": ["dist/generic-postgres-mcp.js"],
+      "cwd": "${workspaceFolder}",
+      "env": {
+        "POSTGRES_HOST": "localhost",
+        "POSTGRES_PORT": "5432",
+        "POSTGRES_DATABASE": "mcp_db",
+        "POSTGRES_USER": "mcp_user",
+        "POSTGRES_PASSWORD": "mcp_password"
+      }
+    }
+  }
+}

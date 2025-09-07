@@ -3,12 +3,12 @@
     "postgres-mcp-server": {
       "type": "stdio",
       "command": "node",
-      "args": ["dist/index.js"],
-      "cwd": "/workspaces/ai-learning/mcp-server-poc",
+      "args": ["dist/generic-postgres-mcp.js"],
+      "cwd": "/workspaces/mcp-server-postgres-poc",
       "env": {
         "POSTGRES_HOST": "localhost",
         "POSTGRES_PORT": "5432",
-        "POSTGRES_DB": "mcp_db",
+        "POSTGRES_DATABASE": "mcp_db",
         "POSTGRES_USER": "mcp_user",
         "POSTGRES_PASSWORD": "mcp_password"
       }

@@ -2,26 +2,18 @@
   "name": "postgres-mcp-server",
   "version": "1.0.0",
   "description": "MCP server for querying PostgreSQL databases",
-  "main": "dist/index.js",
+  "main": "dist/generic-postgres-mcp.js",
   "type": "module",
   "bin": {
-    "postgres-mcp-server": "dist/index.js"
+    "postgres-mcp-server": "dist/generic-postgres-mcp.js"
   },
   "scripts": {
     "build": "tsc",
-    "start": "node dist/index.js",
-    "dev": "tsx src/index.ts",
-    "watch": "tsx watch src/index.ts",
+    "start": "node dist/generic-postgres-mcp.js",
+    "dev": "tsx src/generic-postgres-mcp.ts",
+    "watch": "tsx watch src/generic-postgres-mcp.ts",
     "clean": "rimraf dist",
-    "typecheck": "tsc --noEmit",
-    "test-connection": "tsx src/test-connection.ts",
-    "validate-weather": "tsx src/validate-weather.ts",
-    "weather": "tsx src/weather-service.ts",
-    "weather:tokyo": "tsx src/weather-service.ts city Tokyo",
-    "weather:latest": "tsx src/weather-service.ts latest",
-    "weather:hot": "tsx src/weather-service.ts hot",
-    "weather:stats": "tsx src/weather-service.ts stats",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "typecheck": "tsc --noEmit"
   },
   "keywords": [
     "mcp",
@@ -33,6 +25,8 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
     "@types/node": "^24.1.0",
     "nodemon": "^3.1.10",
     "tsx": "^4.20.3",
@@ -41,8 +35,11 @@
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.17.1",
     "@types/pg": "^8.15.5",
+    "cors": "^2.8.5",
     "dotenv": "^17.2.1",
+    "express": "^5.1.0",
     "pg": "^8.16.3",
-    "zod": "^3.25.76"
+    "zod": "^3.25.76",
+    "rimraf": "^5.0.0"
   }
 }
