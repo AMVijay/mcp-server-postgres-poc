@@ -99,13 +99,28 @@ The `weather-data-setup/` directory contains:
 - **weather.csv**: Historical weather data from US weather stations (16,744+ records)
 - **setup-weather-data.ts**: Script to create and populate the weather database
 
+#### Test Screenshots
+Screenshots of the MCP server in action with weather data:
+
+<details>
+  <summary>List Tables Tool</summary>
+  <img src="screenshots/mcp_server-poc-list-tables.jpg" alt="List Tables Screenshot" width="600" />
+</details>
+
+<details>
+  <summary>Weather Data Queries</summary>
+  <img src="screenshots/mcp_server-poc-weather-data-queries.jpg" alt="Weather Data Queries Screenshot" width="600" />
+</details>
+
 To set up the sample data:
 ```bash
 cd weather-data-setup
-npx tsx setup-weather-data.ts
+npx ts-node setup-weather-data.ts
 ```
 
 This creates a `weather_data` table with fields including temperature, precipitation, wind data, and station information.
+
+
 
 ## Development
 
